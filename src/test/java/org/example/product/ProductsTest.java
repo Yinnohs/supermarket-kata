@@ -28,13 +28,10 @@ public class ProductsTest {
         );
         BigDecimal expectedPriceCalculated = BigDecimal.valueOf(1.00).setScale(2, RoundingMode.UNNECESSARY);
 
-
         //when
-
         BigDecimal result = weightedProduct.calculatePrice();
 
         //then
-
         Assert.assertEquals(expectedPriceCalculated, result);
     }
 }
