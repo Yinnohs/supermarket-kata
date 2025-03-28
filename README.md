@@ -24,11 +24,11 @@ Implement a `Supermarket` class in Java that supports the following operations:
 (These are examples not the final result expected)
 ### 1. Add Products and Pricing
 ```java
-Supermarket supermarket = new Supermarket();
-supermarket.addProduct("beans", 0.65);
-supermarket.addBulkPrice("soda", 3, 1.00);
-supermarket.addWeightedPrice("apples", 1.99);
-supermarket.addPromotion("chips", 2, 1); // Buy 2, Get 1 Free
+CashRegister cashRegister = new CashRegister();
+cashRegister.addProduct("beans", 0.65);
+cashRegister.addBulkPrice("soda", 3, 1.00);
+cashRegister.addWeightedPrice("apples", 1.99);
+cashRegister.addPromotion("chips", 2, 1); // Buy 2, Get 1 Free
 ```
 
 ### 2. Process a Customer's Cart
