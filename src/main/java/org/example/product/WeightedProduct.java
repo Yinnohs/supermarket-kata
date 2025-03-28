@@ -4,13 +4,11 @@ import java.math.BigDecimal;
 
 public class WeightedProduct implements Product {
     String productName;
-    Long quantity;
     BigDecimal price;
     BigDecimal totalWeight;
 
-    public WeightedProduct(String productName, Long quantity, BigDecimal price, BigDecimal totalWeight) {
+    public WeightedProduct(String productName, BigDecimal price, BigDecimal totalWeight) {
         this.productName = productName;
-        this.quantity = quantity;
         this.price = price;
         this.totalWeight = totalWeight;
     }
@@ -21,14 +19,6 @@ public class WeightedProduct implements Product {
 
     public void setProductName(String productName) {
         this.productName = productName;
-    }
-
-    public Long getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Long quantity) {
-        this.quantity = quantity;
     }
 
     public BigDecimal getPrice() {

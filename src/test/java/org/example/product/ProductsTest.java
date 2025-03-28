@@ -18,4 +18,22 @@ public class ProductsTest {
 
         Assert.assertEquals(expectedPrice, result);
     }
+
+    @Test
+    public void should_return_correct_amount_from_weight_calculation_product(){
+        //given
+        Product weightedProduct = new WeightedProduct(
+                "manzanas",  BigDecimal.valueOf(0.4),BigDecimal.valueOf(2.5)
+        );
+        BigDecimal expectedPriceCalculated = BigDecimal.valueOf(1);
+
+
+        //when
+
+        BigDecimal result = weightedProduct.calculatePrice();
+
+        //then
+
+        Assert.assertEquals(expectedPriceCalculated, result);
+    }
 }
