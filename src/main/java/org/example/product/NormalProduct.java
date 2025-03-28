@@ -40,6 +40,7 @@ public class NormalProduct implements Product {
 
     @Override
     public BigDecimal calculatePrice() {
-        return null;
+        BigDecimal quantityInBigDecimal = BigDecimal.valueOf(quantity);
+        return price.multiply(quantityInBigDecimal);
     }
 }
