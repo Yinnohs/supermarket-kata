@@ -21,7 +21,7 @@ Your task is to write Java code that can process these pricing rules and compute
 ## Expected Functionality
 
 Implement a `Supermarket` class in Java that supports the following operations:
-
+(These are examples not the final result expected)
 ### 1. Add Products and Pricing
 ```java
 Supermarket supermarket = new Supermarket();
@@ -33,11 +33,11 @@ supermarket.addPromotion("chips", 2, 1); // Buy 2, Get 1 Free
 
 ### 2. Process a Customer's Cart
 ```java
-CustomerCart cart = new HashMap<>();
-cart.put("beans", 2.0);
-cart.put("soda", 4.0);
-cart.put("apples", 0.25); // 4 ounces (1/4 lb)
-cart.put("chips", 3.0);
+Cart cart = new CustomerCart();
+cart.putProduct("beans", 2.0);
+cart.putProduct("soda", 4.0);
+cart.putProduct("apples", 0.25); // 4 ounces (1/4 lb)
+cart.putProduct("chips", 3.0);
 
 double total = supermarket.calculateTotal(cart);
 System.out.println("Total cost: " + total);
