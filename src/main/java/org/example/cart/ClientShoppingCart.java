@@ -14,7 +14,7 @@ public class ClientShoppingCart implements ShoppingCart {
 
     @Override
     public void addProduct(Product product) {
-
+        products.add(product);
     }
 
     @Override
