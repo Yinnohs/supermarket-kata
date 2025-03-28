@@ -19,6 +19,10 @@ public class ClientShoppingCart implements ShoppingCart {
 
     @Override
     public long countProductsQuantity() {
-        return 0;
+        long totalAmount = 0L;
+        for (Product product : products ){
+            totalAmount+= product.getTotalQuantity();
+        }
+        return totalAmount;
     }
 }

@@ -58,4 +58,9 @@ public class BulkDiscountProduct implements Product {
         BigDecimal multiplyQuantity = BigDecimal.valueOf(finalQuantity);
         return price.multiply(multiplyQuantity).setScale(2, RoundingMode.UNNECESSARY);
     }
+
+    @Override
+    public long getTotalQuantity() {
+        return this.getQuantity();
+    }
 }

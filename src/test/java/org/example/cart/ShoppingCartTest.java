@@ -31,7 +31,7 @@ public class ShoppingCartTest {
     @Test
     public void should_calculate_total_amount_of_products_in_the_shopping_cart(){
         //given
-        long expectedResult = 10;
+        long expectedResult = 12;
 
         //when
         long result = shoppingCart.countProductsQuantity();

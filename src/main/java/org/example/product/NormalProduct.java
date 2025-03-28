@@ -43,4 +43,9 @@ public class NormalProduct implements Product {
         BigDecimal quantityInBigDecimal = BigDecimal.valueOf(quantity);
         return price.multiply(quantityInBigDecimal);
     }
+
+    @Override
+    public long getTotalQuantity() {
+        return this.getQuantity();
+    }
 }

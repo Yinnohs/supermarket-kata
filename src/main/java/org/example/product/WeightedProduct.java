@@ -43,4 +43,9 @@ public class WeightedProduct implements Product {
     public BigDecimal calculatePrice() {
         return price.multiply(totalWeight).setScale(2, RoundingMode.UNNECESSARY);
     }
+
+    @Override
+    public long getTotalQuantity() {
+        return 1;
+    }
 }
