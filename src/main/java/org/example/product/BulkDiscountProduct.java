@@ -50,15 +50,12 @@ public class BulkDiscountProduct implements Product {
 
     @Override
     public BigDecimal calculatePrice() {
-        long finalQuantity = 0L;
+        long finalQuantity = quantity;
         if (quantity >= quantityFree){
             finalQuantity = quantity - (quantityFree - 1);
-        }else {
-            finalQuantity = quantity;
         }
 
         BigDecimal multiplyQuantity = BigDecimal.valueOf(finalQuantity);
-
         return price.multiply(multiplyQuantity).setScale(2, RoundingMode.UNNECESSARY);
     }
 }
