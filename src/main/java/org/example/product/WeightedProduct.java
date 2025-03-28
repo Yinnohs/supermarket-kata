@@ -1,6 +1,7 @@
 package org.example.product;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class WeightedProduct implements Product {
     String productName;
@@ -9,8 +10,8 @@ public class WeightedProduct implements Product {
 
     public WeightedProduct(String productName, BigDecimal price, BigDecimal totalWeight) {
         this.productName = productName;
-        this.price = price;
-        this.totalWeight = totalWeight;
+        this.price = price.setScale(2, RoundingMode.UNNECESSARY);
+        this.totalWeight = totalWeight.setScale(2, RoundingMode.UNNECESSARY);
     }
 
     public String getProductName() {
@@ -40,6 +41,6 @@ public class WeightedProduct implements Product {
 
     @Override
     public BigDecimal calculatePrice() {
-        return null;
+        return price.multiply(totalWeight).setScale(2, RoundingMode.UNNECESSARY);
     }
 }

@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.Assert;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class ProductsTest {
     @Test
@@ -25,7 +26,7 @@ public class ProductsTest {
         Product weightedProduct = new WeightedProduct(
                 "manzanas",  BigDecimal.valueOf(0.4),BigDecimal.valueOf(2.5)
         );
-        BigDecimal expectedPriceCalculated = BigDecimal.valueOf(1);
+        BigDecimal expectedPriceCalculated = BigDecimal.valueOf(1.00).setScale(2, RoundingMode.UNNECESSARY);
 
 
         //when
