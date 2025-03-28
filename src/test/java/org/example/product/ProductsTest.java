@@ -34,4 +34,21 @@ public class ProductsTest {
         //then
         Assert.assertEquals(expectedPriceCalculated, result);
     }
+
+    // where  here assuming that when you take the 2 for 1 only apply once per purchases
+    @Test
+    public void should_return_correct_amount_from_bulk_discount_price_calculation(){
+        //given
+        Product bulkDiscountProduct = new BulkDiscountProduct(
+                "manzanas", 6L ,BigDecimal.valueOf(2.5), 4
+        );
+        BigDecimal expectedPriceCalculated = BigDecimal.valueOf(7.50)
+                .setScale(2, RoundingMode.UNNECESSARY);
+
+        //when
+        BigDecimal result = bulkDiscountProduct.calculatePrice();
+
+        //then
+        Assert.assertEquals(expectedPriceCalculated, result);
+    }
 }

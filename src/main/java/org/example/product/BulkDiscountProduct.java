@@ -1,18 +1,19 @@
 package org.example.product;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class BulkDiscountProduct implements Product {
     String productName;
     Long quantity;
     BigDecimal price;
-    int discount;
+    int quantityFree;
 
     public BulkDiscountProduct(String productName, Long quantity, BigDecimal price, int discount) {
         this.productName = productName;
         this.quantity = quantity;
-        this.price = price;
-        this.discount = discount;
+        this.price = price.setScale(2, RoundingMode.UNNECESSARY);
+        this.quantityFree = discount;
     }
 
     public String getProductName() {
@@ -32,23 +33,32 @@ public class BulkDiscountProduct implements Product {
     }
 
     public BigDecimal getPrice() {
-        return price;
+        return price.setScale(2, RoundingMode.UNNECESSARY);
     }
 
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
-    public int getDiscount() {
-        return discount;
+    public int getQuantityFree() {
+        return quantityFree;
     }
 
-    public void setDiscount(int discount) {
-        this.discount = discount;
+    public void setQuantityFree(int quantityFree) {
+        this.quantityFree = quantityFree;
     }
 
     @Override
     public BigDecimal calculatePrice() {
-        return null;
+        long finalQuantity = 0L;
+        if (quantity >= quantityFree){
+            finalQuantity = quantity - (quantityFree - 1);
+        }else {
+            finalQuantity = quantity;
+        }
+
+        BigDecimal multiplyQuantity = BigDecimal.valueOf(finalQuantity);
+
+        return price.multiply(multiplyQuantity).setScale(2, RoundingMode.UNNECESSARY);
     }
 }
